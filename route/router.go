@@ -2,34 +2,17 @@ package route
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/yourname/gin-gin/handlers"
 )
 
-func myroutes(r *gin.Engine) {
+func MyRoutes(r *gin.Engine) {
 
 	// Health check
-	r.GET("/health", func(c *gin.Context) {
-		c.JSON(200, gin.H{"status": "ok"})
-	})
+	r.GET("/health", handlers.HandlerHealth)
 
 	// GET /hello?name=Taro
-	r.GET("/hello", func(c *gin.Context) {
-		name := c.Query("name")
-		if name == "" {
-			name = "World"
-		}
-		c.JSON(200, gin.H{"message": "Hello " + name})
-	})
+	r.GET("/hello", handlers.HandlerHello)
 
 	// POST /user でJSON受信
-	r.POST("/user", func(c *gin.Context) {
-		var body struct {
-			Name string `json:"name"`
-			Age  int    `json:"age"`
-		}
-		if err := c.BindJSON(&body); err != nil {
-			c.JSON(400, gin.H{"error": "invalid json"})
-			return
-		}
-		c.JSON(201, gin.H{"created": body})
-	})
+	r.POST("/user", handlers.HandlerPostUser)
 }
