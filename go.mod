@@ -1,4 +1,4 @@
-module examle.com/gin-gin
+module gin-gin
 
 go 1.25.3
 

@@ -1,0 +1,50 @@
+# ==============================
+# Go / Gin API Project Ignore
+# ==============================
+
+# ---- Build outputs ----
+bin/
+build/
+dist/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# ---- Compiled binaries ----
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# ---- Go build cache / temp ----
+*.out
+*.log
+
+# ---- OS / Editor files ----
+.DS_Store
+Thumbs.db
+
+# ---- IDE / Editor ----
+.vscode/
+.idea/
+*.swp
+
+# ---- Go module cache ----
+# (go.sum は公開必須なので消さない)
+vendor/
+
+# ---- Environment variables ----
+.env
+.env.*
+!env.example
+
+# ---- Logs ----
+logs/
+*.log
+
+# ---- Temporary files ----
+tmp/
+temp/
